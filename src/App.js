@@ -44,7 +44,7 @@ class App extends Component {
               Precipitation: {this.condition.precipitation}
             </div>
             <div className="weather-detail__text">
-              Wind: <span id="wind-speed" />
+              Wind: {this.condition.wind}
             </div>
           </div>
         </div>
