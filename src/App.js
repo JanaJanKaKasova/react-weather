@@ -2,24 +2,32 @@ import React, { Component } from "react";
 import "./App.css";
 
 class App extends Component {
-  condition = {
-    city: "Lisbon",
-    description: "Clouds",
-    imgUrl: "http://openweathermap.org/img/w/02d.png",
-    precipitation: "62%",
-    temperature: 12,
-    time: "Thu 15:09",
-    wind: "4 km/h"
-  };
+  constructor() {
+    super();
+    //this.state
+    this.state = {
+      condition: {
+        city: "Lisbon",
+        description: "Clouds",
+        imgUrl: "http://openweathermap.org/img/w/02d.png",
+        precipitation: "62%",
+        temperature: 12,
+        time: "Thu 15:09",
+        wind: "4 km/h"
+      }
+    };
+  }
 
   render() {
     return (
       <div className="weather-summary">
         <div className="weather-summary-header">
-          <h1>{this.condition.city}</h1>
-          <div className="weather-detail__text">{this.condition.time}</div>
+          <h1>{this.state.condition.city}</h1>
           <div className="weather-detail__text">
-            {this.condition.description}
+            {this.state.condition.time}
+          </div>
+          <div className="weather-detail__text">
+            {this.state.condition.description}
           </div>
         </div>
 
@@ -29,10 +37,10 @@ class App extends Component {
               <img
                 className="weather__icon weather__icon--today"
                 alt="weather icon"
-                src={this.condition.imgUrl}
+                src={this.state.condition.imgUrl}
               />
               <div className="weather-temp weather-temp--today">
-                {this.condition.temperature}
+                {this.state.condition.temperature}
               </div>
               <div className="weather-unit__text weather-unit__text--today">
                 °C
@@ -41,116 +49,116 @@ class App extends Component {
           </div>
           <div className="col-md-6">
             <div className="weather-detail__text">
-              Precipitation: {this.condition.precipitation}
+              Precipitation: {this.state.condition.precipitation}
             </div>
             <div className="weather-detail__text">
-              Wind: {this.condition.wind}
+              Wind: {this.state.condition.wind}
             </div>
           </div>
         </div>
 
         <div className="days clearfix">
           <div className="day__block">
-            <div className="day__block-date">{this.condition.time}</div>
+            <div className="day__block-date">{this.state.condition.time}</div>
             <img
               className="day__block-image"
               alt="weather icon"
-              src={this.condition.imgUrl}
+              src={this.state.condition.imgUrl}
             />
             <div className="day__block-temps">
               <span className="day__block-temp">
-                {this.condition.temperature}
+                {this.state.condition.temperature}
               </span>
             </div>
           </div>
           <div className="day__block">
-            <div className="day__block-date">{this.condition.time}</div>
+            <div className="day__block-date">{this.state.condition.time}</div>
             <img
               className="day__block-image"
               alt="weather icon"
-              src={this.condition.imgUrl}
+              src={this.state.condition.imgUrl}
             />
             <div className="day__block-temps">
               <span className="day__block-temp">
-                {this.condition.temperature}
+                {this.state.condition.temperature}
               </span>
             </div>
           </div>
           <div className="day__block">
-            <div className="day__block-date">{this.condition.time}</div>
+            <div className="day__block-date">{this.state.condition.time}</div>
             <img
               className="day__block-image"
               alt="weather icon"
-              src={this.condition.imgUrl}
+              src={this.state.condition.imgUrl}
             />
             <div className="day__block-temps">
               <span className="day__block-temp">
-                {this.condition.temperature}
+                {this.state.condition.temperature}
               </span>
             </div>
           </div>
           <div className="day__block">
-            <div className="day__block-date">{this.condition.time}</div>
+            <div className="day__block-date">{this.state.condition.time}</div>
             <img
               className="day__block-image"
               alt="weather icon"
-              src={this.condition.imgUrl}
+              src={this.state.condition.imgUrl}
             />
             <div className="day__block-temps">
               <span className="day__block-temp">
-                {this.condition.temperature}
+                {this.state.condition.temperature}
               </span>
             </div>
           </div>
           <div className="day__block">
-            <div className="day__block-date">{this.condition.time}</div>
+            <div className="day__block-date">{this.state.condition.time}</div>
             <img
               className="day__block-image"
               alt="weather icon"
-              src={this.condition.imgUrl}
+              src={this.state.condition.imgUrl}
             />
             <div className="day__block-temps">
               <span className="day__block-temp">
-                {this.condition.temperature}
+                {this.state.condition.temperature}
               </span>
             </div>
           </div>
           <div className="day__block">
-            <div className="day__block-date">{this.condition.time}</div>
+            <div className="day__block-date">{this.state.condition.time}</div>
             <img
               className="day__block-image"
               alt="weather icon"
-              src={this.condition.imgUrl}
+              src={this.state.condition.imgUrl}
             />
             <div className="day__block-temps">
               <span className="day__block-temp">
-                {this.condition.temperature}
+                {this.state.condition.temperature}
               </span>
             </div>
           </div>
           <div className="day__block">
-            <div className="day__block-date">{this.condition.time}</div>
+            <div className="day__block-date">{this.state.condition.time}</div>
             <img
               className="day__block-image"
               alt="weather icon"
-              src={this.condition.imgUrl}
+              src={this.state.condition.imgUrl}
             />
             <div className="day__block-temps">
               <span className="day__block-temp">
-                {this.condition.temperature}
+                {this.state.condition.temperature}
               </span>
             </div>
           </div>
           <div className="day__block">
-            <div className="day__block-date">{this.condition.time}</div>
+            <div className="day__block-date">{this.state.condition.time}</div>
             <img
               className="day__block-image"
               alt="weather icon"
-              src={this.condition.imgUrl}
+              src={this.state.condition.imgUrl}
             />
             <div className="day__block-temps">
               <span className="day__block-temp">
-                {this.condition.temperature}
+                {this.state.condition.temperature}
               </span>
             </div>
           </div>
