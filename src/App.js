@@ -48,6 +48,113 @@ class App extends Component {
             </div>
           </div>
         </div>
+
+        <div className="days clearfix">
+          <div className="day__block">
+            <div className="day__block-date">{this.condition.time}</div>
+            <img
+              className="day__block-image"
+              alt="weather icon"
+              src={this.condition.imgUrl}
+            />
+            <div className="day__block-temps">
+              <span className="day__block-temp">
+                {this.condition.temperature}
+              </span>
+            </div>
+          </div>
+          <div className="day__block">
+            <div className="day__block-date">{this.condition.time}</div>
+            <img
+              className="day__block-image"
+              alt="weather icon"
+              src={this.condition.imgUrl}
+            />
+            <div className="day__block-temps">
+              <span className="day__block-temp">
+                {this.condition.temperature}
+              </span>
+            </div>
+          </div>
+          <div className="day__block">
+            <div className="day__block-date">{this.condition.time}</div>
+            <img
+              className="day__block-image"
+              alt="weather icon"
+              src={this.condition.imgUrl}
+            />
+            <div className="day__block-temps">
+              <span className="day__block-temp">
+                {this.condition.temperature}
+              </span>
+            </div>
+          </div>
+          <div className="day__block">
+            <div className="day__block-date">{this.condition.time}</div>
+            <img
+              className="day__block-image"
+              alt="weather icon"
+              src={this.condition.imgUrl}
+            />
+            <div className="day__block-temps">
+              <span className="day__block-temp">
+                {this.condition.temperature}
+              </span>
+            </div>
+          </div>
+          <div className="day__block">
+            <div className="day__block-date">{this.condition.time}</div>
+            <img
+              className="day__block-image"
+              alt="weather icon"
+              src={this.condition.imgUrl}
+            />
+            <div className="day__block-temps">
+              <span className="day__block-temp">
+                {this.condition.temperature}
+              </span>
+            </div>
+          </div>
+          <div className="day__block">
+            <div className="day__block-date">{this.condition.time}</div>
+            <img
+              className="day__block-image"
+              alt="weather icon"
+              src={this.condition.imgUrl}
+            />
+            <div className="day__block-temps">
+              <span className="day__block-temp">
+                {this.condition.temperature}
+              </span>
+            </div>
+          </div>
+          <div className="day__block">
+            <div className="day__block-date">{this.condition.time}</div>
+            <img
+              className="day__block-image"
+              alt="weather icon"
+              src={this.condition.imgUrl}
+            />
+            <div className="day__block-temps">
+              <span className="day__block-temp">
+                {this.condition.temperature}
+              </span>
+            </div>
+          </div>
+          <div className="day__block">
+            <div className="day__block-date">{this.condition.time}</div>
+            <img
+              className="day__block-image"
+              alt="weather icon"
+              src={this.condition.imgUrl}
+            />
+            <div className="day__block-temps">
+              <span className="day__block-temp">
+                {this.condition.temperature}
+              </span>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
