@@ -12,9 +12,8 @@ class App extends Component {
     let apiParams = "appid=" + apiKey + "&units=metric";
 
     axios
-      .get(apiUrl + "/data/2.5/weather?" + apiParams + "&q=Miami")
+      .get(apiUrl + "/data/2.5/weather?" + apiParams + "&q=Lisbon")
       .then(response => {
-        console.log(response);
         this.setState({
           condition: {
             city: response.data.name,
@@ -23,7 +22,7 @@ class App extends Component {
               "http://openweathermap.org/img/w/" +
               response.data.weather[0].icon +
               ".png",
-            precipitation: Math.round(response.data.main.humidity),
+            precipitation: Math.round(response.data.main.humidity) + "%",
             temperature: Math.round(response.data.main.temp),
             time: this.friendlyDate(new Date()),
             wind: Math.round(response.data.wind.speed) + "km/h"
@@ -49,7 +48,7 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.conditions) {
+    if (this.state.condition) {
       return (
         <div className="weather-summary">
           <div className="weather-summary-header">
