@@ -1,18 +1,29 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import axios from "axios";
+import WeatherIcon from "./WeatherIcon";
 import "./App.css";
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {};
+  state = {};
+
+  static propTypes = {
+    city: PropTypes.string.isRequired
+  };
+
+  static defaultProps = {
+    city: "Lisbon"
+  };
+
+  constructor(props) {
+    super(props);
 
     let apiUrl = "https://api.openweathermap.org";
     let apiKey = "029474316bb793be56fc4dee0d85fa00";
     let apiParams = "appid=" + apiKey + "&units=metric";
 
     axios
-      .get(apiUrl + "/data/2.5/weather?" + apiParams + "&q=Lisbon")
+      .get(apiUrl + "/data/2.5/weather?" + apiParams + "&q=" + this.props.city)
       .then(response => {
         this.setState({
           condition: {
@@ -64,6 +75,7 @@ class App extends Component {
           <div className="row">
             <div className="col-md-6">
               <div className="clearfix">
+                <WeatherIcon />
                 <img
                   className="weather__icon weather__icon--today"
                   alt="weather icon"
