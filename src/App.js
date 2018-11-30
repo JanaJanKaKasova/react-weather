@@ -29,10 +29,7 @@ class App extends Component {
           condition: {
             city: response.data.name,
             description: response.data.weather[0].main,
-            imgUrl:
-              "http://openweathermap.org/img/w/" +
-              response.data.weather[0].icon +
-              ".png",
+            icon: response.data.weather[0].icon,
             precipitation: Math.round(response.data.main.humidity) + "%",
             temperature: Math.round(response.data.main.temp),
             time: this.friendlyDate(new Date()),
@@ -75,12 +72,7 @@ class App extends Component {
           <div className="row">
             <div className="col-md-6">
               <div className="clearfix">
-                <WeatherIcon />
-                <img
-                  className="weather__icon weather__icon--today"
-                  alt="weather icon"
-                  src={this.state.condition.imgUrl}
-                />
+                <WeatherIcon icon={this.state.condition.icon} />
                 <div className="weather-temp weather-temp--today">
                   {this.state.condition.temperature}
                 </div>
@@ -102,11 +94,7 @@ class App extends Component {
           <div className="days clearfix">
             <div className="day__block">
               <div className="day__block-date">{this.state.condition.time}</div>
-              <img
-                className="day__block-image"
-                alt="weather icon"
-                src={this.state.condition.imgUrl}
-              />
+              <WeatherIcon icon={this.state.condition.icon} />
               <div className="day__block-temps">
                 <span className="day__block-temp">
                   {this.state.condition.temperature}
@@ -115,11 +103,7 @@ class App extends Component {
             </div>
             <div className="day__block">
               <div className="day__block-date">{this.state.condition.time}</div>
-              <img
-                className="day__block-image"
-                alt="weather icon"
-                src={this.state.condition.imgUrl}
-              />
+              <WeatherIcon icon={this.state.condition.icon} />
               <div className="day__block-temps">
                 <span className="day__block-temp">
                   {this.state.condition.temperature}
@@ -128,11 +112,7 @@ class App extends Component {
             </div>
             <div className="day__block">
               <div className="day__block-date">{this.state.condition.time}</div>
-              <img
-                className="day__block-image"
-                alt="weather icon"
-                src={this.state.condition.imgUrl}
-              />
+              <WeatherIcon icon={this.state.condition.icon} />
               <div className="day__block-temps">
                 <span className="day__block-temp">
                   {this.state.condition.temperature}
@@ -141,11 +121,7 @@ class App extends Component {
             </div>
             <div className="day__block">
               <div className="day__block-date">{this.state.condition.time}</div>
-              <img
-                className="day__block-image"
-                alt="weather icon"
-                src={this.state.condition.imgUrl}
-              />
+              <WeatherIcon icon={this.state.condition.icon} />
               <div className="day__block-temps">
                 <span className="day__block-temp">
                   {this.state.condition.temperature}
@@ -154,11 +130,7 @@ class App extends Component {
             </div>
             <div className="day__block">
               <div className="day__block-date">{this.state.condition.time}</div>
-              <img
-                className="day__block-image"
-                alt="weather icon"
-                src={this.state.condition.imgUrl}
-              />
+              <WeatherIcon icon={this.state.condition.icon} />
               <div className="day__block-temps">
                 <span className="day__block-temp">
                   {this.state.condition.temperature}
@@ -167,11 +139,7 @@ class App extends Component {
             </div>
             <div className="day__block">
               <div className="day__block-date">{this.state.condition.time}</div>
-              <img
-                className="day__block-image"
-                alt="weather icon"
-                src={this.state.condition.imgUrl}
-              />
+              <WeatherIcon icon={this.state.condition.icon} />
               <div className="day__block-temps">
                 <span className="day__block-temp">
                   {this.state.condition.temperature}
@@ -180,11 +148,7 @@ class App extends Component {
             </div>
             <div className="day__block">
               <div className="day__block-date">{this.state.condition.time}</div>
-              <img
-                className="day__block-image"
-                alt="weather icon"
-                src={this.state.condition.imgUrl}
-              />
+              <WeatherIcon icon={this.state.condition.icon} />
               <div className="day__block-temps">
                 <span className="day__block-temp">
                   {this.state.condition.temperature}
@@ -193,11 +157,7 @@ class App extends Component {
             </div>
             <div className="day__block">
               <div className="day__block-date">{this.state.condition.time}</div>
-              <img
-                className="day__block-image"
-                alt="weather icon"
-                src={this.state.condition.imgUrl}
-              />
+              <WeatherIcon icon={this.state.condition.icon} />
               <div className="day__block-temps">
                 <span className="day__block-temp">
                   {this.state.condition.temperature}
