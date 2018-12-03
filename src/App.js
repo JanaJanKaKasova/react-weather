@@ -112,6 +112,9 @@ class App extends Component {
     if (this.state.condition) {
       return (
         <div className="weather-summary">
+          <button onClick={event => this.currentLocation(event)}>
+            Current Location
+          </button>
           <div className="weather-summary-header">
             <h1>{this.state.condition.city}</h1>
             <div className="weather-detail__text">
