@@ -1,14 +1,19 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 class WeatherIcon extends Component {
+  static propTypes = {
+    iconName: PropTypes.string.isRequired
+  };
+
   render() {
-    let url = "http://openweathermap.org/img/w/" + this.props.icon + ".png";
-    console.log(url);
+    let imgSrc =
+      "http://openweathermap.org/img/w/" + this.props.iconName + ".png";
     return (
       <img
         className="weather__icon weather__icon--today"
-        src={url}
         alt="weather icon"
+        src={imgSrc}
       />
     );
   }
