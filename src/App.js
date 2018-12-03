@@ -12,17 +12,31 @@ class App extends Component {
   };
 
   static defaultProps = {
-    city: "Lisbon"
+    city: "Lisbon",
+    apiUrl: "https://api.openweathermap.org",
+    apiKey: "029474316bb793be56fc4dee0d85fa00"
   };
 
   constructor(props) {
     super(props);
 
-    let apiUrl = "https://api.openweathermap.org";
+    this.refrehWeatherFromUrl(
+      this.props.apiUrl +
+        "/data/2.5/weather?" +
+        "appid=" +
+        this.props.apiKey +
+        "&units=metric" +
+        "&q=" +
+        this.props.city
+    );
+  }
+
+  /* let apiUrl = "https://api.openweathermap.org";
     let apiKey = "029474316bb793be56fc4dee0d85fa00";
     let apiParams = "appid=" + apiKey + "&units=metric";
+    */
 
-    axios
+  /* axios
       .get(apiUrl + "/data/2.5/weather?" + apiParams + "&q=" + this.props.city)
       .then(response => {
         this.setState({
@@ -37,7 +51,7 @@ class App extends Component {
           }
         });
       });
-  }
+  } */
 
   friendlyDate(date) {
     let days = [
@@ -53,6 +67,45 @@ class App extends Component {
     if (minutes < 10) minutes = "0" + minutes;
 
     return days[date.getDay()] + " " + date.getHours() + ":" + minutes;
+  }
+
+  refrehWeatherFromUrl(url) {
+    axios.get(url).then(response => {
+      this.setState({
+        condition: {
+          city: response.data.name,
+          description: response.data.weather[0].main,
+          icon: response.data.weather[0].icon,
+          precipitation: Math.round(response.data.main.humidity) + "%",
+          temperature: Math.round(response.data.main.temp),
+          time: this.friendlyDate(new Date()),
+          wind: Math.round(response.data.wind.speed) + "km/h"
+        }
+      });
+    });
+  }
+
+  refrehWeatherFromLatitudeAndLongitude(latitude, longitude) {
+    this.refrehWeatherFromUrl(
+      this.props.apiUrl +
+        "/data/2.5/weather?" +
+        "appid=" +
+        this.props.apiKey +
+        "&units=metric" +
+        "&lat=" +
+        latitude +
+        "&lon=" +
+        longitude
+    );
+  }
+
+  curentLocation(event) {
+    navigator.geolocation.getCurrentPosition(position => {
+      this.refrehWeatherFromLatitudeAndLongitude(
+        position.coords.latitude,
+        position.coords.longitude
+      );
+    });
   }
 
   render() {
