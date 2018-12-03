@@ -99,7 +99,7 @@ class App extends Component {
     );
   }
 
-  curentLocation(event) {
+  currentLocation(event) {
     navigator.geolocation.getCurrentPosition(position => {
       this.refrehWeatherFromLatitudeAndLongitude(
         position.coords.latitude,
