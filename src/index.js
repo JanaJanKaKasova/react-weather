@@ -6,7 +6,7 @@ ReactDom.render(<App city="Lisbon" />, document.querySelector("#lisbon"));
 
 //input data to the app (instead of form), we can manipulate it
 
-ReactDom.render(
+/*ReactDom.render(
   <App city="Filipova Hora" />,
   document.querySelector("#filipovahora")
-);
+);  */
