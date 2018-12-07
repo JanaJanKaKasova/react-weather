@@ -128,7 +128,7 @@ export default class App extends Component {
             </div>
           </div>
 
-          {/* <div className="days clearfix">
+          <div className="days clearfix">
             <div className="day__block">
               <div className="day__block-date">
                 {this.state.conditions.time}
@@ -163,7 +163,31 @@ export default class App extends Component {
               </div>
             </div>
             <div className="day__block">
-              <div className="day__block-date">{this.state.condition.time}</div>
+              <div className="day__block-date">
+                {this.state.conditions.time}
+              </div>
+              <WeatherIcon iconName={this.state.conditions.icon} />
+              <div className="day__block-temps">
+                <span className="day__block-temp">
+                  {this.state.conditions.temperature}
+                </span>
+              </div>
+            </div>
+            <div className="day__block">
+              <div className="day__block-date">
+                {this.state.conditions.time}
+              </div>
+              <WeatherIcon iconName={this.state.conditions.icon} />
+              <div className="day__block-temps">
+                <span className="day__block-temp">
+                  {this.state.conditions.temperature}
+                </span>
+              </div>
+            </div>
+            <div className="day__block">
+              <div className="day__block-date">
+                {this.state.conditions.time}
+              </div>
               <WeatherIcon iconName={this.state.conditions.icon} />
               <div className="day__block-temps">
                 <span className="day__block-temp">
@@ -193,29 +217,7 @@ export default class App extends Component {
                 </span>
               </div>
             </div>
-            <div className="day__block">
-              <div className="day__block-date">
-                {this.state.conditions.time}
-              </div>
-              <WeatherIcon iconName={this.state.conditions.icon} />
-              <div className="day__block-temps">
-                <span className="day__block-temp">
-                  {this.state.condition.temperature}
-                </span>
-              </div>
-            </div>
-            <div className="day__block">
-              <div className="day__block-date">
-                {this.state.conditions.time}
-              </div>
-              <WeatherIcon iconName={this.state.conditions.icon} />
-              <div className="day__block-temps">
-                <span className="day__block-temp">
-                  {this.state.conditions.temperature}
-                </span>
-              </div>
-            </div>
-          </div> */}
+          </div>
         </div>
       );
     } else {
