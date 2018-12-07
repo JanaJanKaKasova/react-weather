@@ -108,6 +108,7 @@ export default class App extends Component {
               <div className="col-md-6">
                 <div className="clearfix">
                   <WeatherIcon iconName={this.state.conditions.icon} />
+                  {/*<WeatherIcon iconName={this.state.conditions.icon} />*/}
                   <div className="weather-temp weather-temp--today">
                     {this.state.conditions.temperature}
                   </div>
