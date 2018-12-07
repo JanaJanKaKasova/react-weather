@@ -15,7 +15,7 @@ class CurrentLocation extends Component {
   render() {
     return (
       <button
-        className="float-left btn btn-info"
+        className="float-left btn btn-secondary"
         onClick={event => this._click(event)}
       >
         Current Location
