@@ -49,7 +49,7 @@ export default class Forecast extends Component {
           icon: forecast[index].weather[0].icon,
           precipitation: Math.round(forecast[index].main.humidity) + "%",
           temperature: Math.round(forecast[index].main.temp),
-          day: this.friendlyDate(new Date()),
+          day: this.friendlyDate(new Date(forecast[index].dt * 1000)),
           wind: Math.round(forecast[index].wind.speed) + "km/h"
         };
       });
