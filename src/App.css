@@ -17,9 +17,9 @@ button {
 }
 
 input[type="text"] {
-  border-radius: 2px;
+  border-radius: 3%;
   border: none;
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
   height: 44px;
   outline: 0;
   padding: 10px;
@@ -27,7 +27,7 @@ input[type="text"] {
 }
 
 .btn {
-  border-radius: 2px;
+  border-radius: 10%;
   height: 44px;
 }
 
@@ -170,7 +170,15 @@ input[type="text"] {
 }
 .btn-pink {
   color: pink;
-  outline-color: pink;
-  outline-offset: 1px;
+  background-color: white;
+  border-color: pink;
+  border-radius: 10%;
   font-size: 1.5rem;
+}
+
+.btn-pink:hover {
+  color: white;
+  background-color: pink;
+  border-color: pink;
+  transition: box-shadow 0.7s ease-in-out;
 }
