@@ -32,7 +32,7 @@ class Search extends Component {
           <input
             type="submit"
             value="Search"
-            className="btn btn-secondary ml-2"
+            className="btn btn-secondary ml-2 pl-4 pr-4"
           />
         </form>
       </div>

@@ -1,5 +1,6 @@
 body {
   font-family: arial, sans-serif;
+  background-color: pink;
 }
 
 h1 {
@@ -27,7 +28,7 @@ input[type="text"] {
 }
 
 .btn {
-  border-radius: 10%;
+  border-radius: 5%;
   height: 44px;
 }
 
@@ -53,9 +54,13 @@ input[type="text"] {
 
 .weather-container {
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.08);
+  border-radius: 2%;
   margin: 20px 0;
   max-width: 630px;
-  padding: 20px 16px 24px 16px;
+  padding: 24px 16px 24px 24px;
+  position: absolute;
+  left: 20%;
+  background: white;
 }
 
 .weather__icon {
