@@ -5,23 +5,20 @@ import "./App.css";
 import WeatherIcon from "./WeatherIcon";
 import CurrentLocation from "./CurrentLocation";
 import Search from "./Search";
+import Forecast from "./Forecast";
+import Api from "./Api";
 
 export default class App extends Component {
-  state = {};
-
   static propTypes = {
     city: PropTypes.string.isRequired
   };
 
-  static defaultProps = {
-    city: "lisbon",
-    apiUrl: "https://api.openweathermap.org",
-    apiKey: "029474316bb793be56fc4dee0d85fa00"
+  state = {
+    city: this.props.city
   };
 
-  constructor(props) {
-    super(props);
-    this.refreshWeatherFromCity(this.props.city);
+  componentWillMount() {
+    this.refresh(this.state.city);
   }
 
   friendlyDate(date) {
@@ -40,11 +37,14 @@ export default class App extends Component {
     return days[date.getDay()] + " " + date.getHours() + ":" + minutes;
   }
 
-  refreshWeatherFromUrl(url) {
+  refreshWeatherFromParams(params) {
+    let url = `${Api.url}/data/2.5/weather?appid=${
+      Api.key
+    }&units=metric&${params}`;
     axios.get(url).then(response => {
       this.setState({
-        conditions: {
-          city: response.data.name,
+        city: response.data.name,
+        weather: {
           description: response.data.weather[0].main,
           icon: response.data.weather[0].icon,
           precipitation: Math.round(response.data.main.humidity) + "%",
@@ -57,37 +57,19 @@ export default class App extends Component {
   }
 
   refreshWeatherFromLatitudeAndLongitude = (latitude, longitude) => {
-    this.refreshWeatherFromUrl(
-      this.props.apiUrl +
-        "/data/2.5/weather?" +
-        "appid=" +
-        this.props.apiKey +
-        "&units=metric" +
-        "&lat=" +
-        latitude +
-        "&lon=" +
-        longitude
-    );
+    this.refreshWeatherFromParams(`lat=${latitude}&lon=${longitude}`);
   };
 
-  refreshWeatherFromCity = city => {
-    this.refreshWeatherFromUrl(
-      this.props.apiUrl +
-        "/data/2.5/weather?" +
-        "appid=" +
-        this.props.apiKey +
-        "&units=metric" +
-        "&q=" +
-        city
-    );
+  refresh = city => {
+    this.refreshWeatherFromParams(`q=${city}`);
   };
 
   render() {
-    if (this.state.conditions) {
+    if (this.state.weather) {
       return (
         <div>
           <div className="clearfix">
-            <Search refresh={this.refreshWeatherFromCity} />
+            <Search refresh={this.refresh} />
             <CurrentLocation
               refresh={this.refreshWeatherFromLatitudeAndLongitude}
             />
@@ -95,22 +77,23 @@ export default class App extends Component {
           <br />
           <div className="weather-summary">
             <div className="weather-summary-header">
-              <h1>{this.state.conditions.city}</h1>
+              <h1>{this.state.city}</h1>
               <div className="weather-detail__text">
-                {this.state.conditions.time}
+                {this.state.weather.time}
               </div>
               <div className="weather-detail__text">
-                {this.state.conditions.description}
+                {this.state.weather.description}
               </div>
             </div>
 
             <div className="row">
               <div className="col-md-6">
                 <div className="clearfix">
-                  <WeatherIcon iconName={this.state.conditions.icon} />
-                  {/*<WeatherIcon iconName={this.state.conditions.icon} />*/}
+                  <div className="float-left weather-icon">
+                    <WeatherIcon iconName={this.state.weather.icon} />
+                  </div>
                   <div className="weather-temp weather-temp--today">
-                    {this.state.conditions.temperature}
+                    {this.state.weather.temperature}
                   </div>
                   <div className="weather-unit__text weather-unit__text--today">
                     °C
@@ -119,16 +102,17 @@ export default class App extends Component {
               </div>
               <div className="col-md-6">
                 <div className="weather-detail__text">
-                  Precipitation: {this.state.conditions.precipitation}
+                  Precipitation: {this.state.weather.precipitation}
                 </div>
                 <div className="weather-detail__text">
-                  Wind: {this.state.conditions.wind}
+                  Wind: {this.state.weather.wind}
                 </div>
               </div>
             </div>
           </div>
+          <Forecast city={this.state.city} />
 
-          <div className="days clearfix">
+          {/* <div className="days clearfix">
             <div className="day__block">
               <div className="day__block-date">
                 {this.state.conditions.time}
@@ -217,7 +201,7 @@ export default class App extends Component {
                 </span>
               </div>
             </div>
-          </div>
+          </div>*/}
         </div>
       );
     } else {
