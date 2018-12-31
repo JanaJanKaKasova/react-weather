@@ -18,7 +18,7 @@ class CurrentLocation extends Component {
         className="float-left btn btn-pink"
         onClick={event => this._click(event)}
       >
-        Current Location
+        <i class="fas fa-search-location" />
       </button>
     );
   }

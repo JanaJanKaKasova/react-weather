@@ -170,4 +170,7 @@ input[type="text"] {
 }
 .btn-pink {
   color: pink;
+  outline-color: pink;
+  outline-offset: 1px;
+  font-size: 1.5rem;
 }
