@@ -27,6 +27,20 @@ input[type="text"] {
   width: 300px;
 }
 
+.app-name {
+  padding-top: 1rem;
+  padding-bottom: 0.3rem;
+  font-size: 30px;
+  color: #878787;
+  font-weight: 100;
+  margin: 0;
+  line-height: 28px;
+}
+
+.logo {
+  color: pink;
+}
+
 .btn {
   border-radius: 5%;
   height: 44px;

@@ -68,6 +68,9 @@ export default class App extends Component {
     if (this.state.weather) {
       return (
         <div>
+          <div className="app-name">
+            <span className="logo">pink</span>Weather
+          </div>
           <div className="clearfix">
             <Search refresh={this.refresh} />
             <CurrentLocation
