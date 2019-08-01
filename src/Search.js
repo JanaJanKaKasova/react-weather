@@ -24,7 +24,6 @@ class Search extends Component {
           <input
             type="text"
             placeholder="Enter a City"
-            autoFocus="off"
             autoComplete="off"
             onChange={event => this._handleChange(event)}
             value={this.state.value}
